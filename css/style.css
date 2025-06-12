@@ -1,0 +1,295 @@
+body{
+  background-color: #161616;
+}
+h1 {
+  color: white;
+  display: flex;
+  position: relative;
+  width: fit-content;
+  height: auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0%;
+}
+header {
+  color: azure;
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 20px;
+  gap: 150px;
+}
+#infoscreen {
+  background-color: black;
+  display: flex;
+  position: relative;
+  width: 1000px;
+  height: 90px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+#menu {
+  display: flex;
+  position: relative;
+  width: 100%;
+  gap: 50px;
+}
+li {
+  display: flex;
+  position: relative;
+  width: fit-content text;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#instruments--channels--container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.looped--nd--live--Instrument--container{
+  display: flex;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 50px;
+  border-radius: 20px;
+}
+.powerBtn {
+  display: flex;
+  margin-bottom: 10px;
+}
+.tempoController--nd--title--container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+
+}
+.tempo--controller--container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  justify-content: center;
+  gap: 20px;
+}
+.tempo--controller {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  background-color: aliceblue;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 10px;
+  padding: 20px;
+  justify-content: center;
+}
+.tempo--dail {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.numbers--nd--nobe--container {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 150px;
+  align-content: center;
+  justify-content: center;
+}
+.numbers {
+  display: flex;
+  position: absolute;
+}
+.nobe {
+  display: flex;
+  position: absolute;
+  transform: translate(-3px, 15px);
+}
+.tempo--increase--decrease--container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+}
+.decrease {
+  background-color: rgb(71, 53, 4);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.plus {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.increase {
+  background-color: rgb(71, 53, 4);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.minus {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.looped--instrument--btn--container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.looped--instrumentBtn {
+  color: white;
+  background-color: rgb(59, 7, 102);
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+#liveInstrumentChannel--container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.liveInstruments--channel {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  max-width: 260px;
+  border: 1px solid black;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+.liveInstrumentsBtn {
+  display: flex;
+  position: relative;
+  color: white;
+  background-color: rgb(6, 133, 105);
+  display: flex;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.liveInstrumentsBtn:hover {
+  opacity: 80%;
+  scale: 90%;
+  transition: 1.2s;
+}
+#soundEffectChannel--container {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.soundEffectBtns-container {
+  gap: 20px;
+  display: flex;
+  position: relative;
+}
+.soundEffect--channel {
+  display: flex;
+  position: relative;
+  
+}
+
+.soundeffectBtn {
+  display: flex;
+  position: relative;
+  color: white;
+  background-color: rgb(8, 88, 236);
+  display: flex;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.soundeffectBtn:hover {
+  opacity: 80%;
+  scale: 90%;
+  transition: 1.2s;
+}
+.menu--options--content { 
+  display: flex;
+  position: relative;
+}
+.for--exra {
+  display: flex;
+  position: relative;
+}
