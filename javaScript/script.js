@@ -1,165 +1,210 @@
 window.onload = pageReady;
 function pageReady() {
-  const liveInstrumentsButton = document.getElementsByClassName("loopedInstrumentBtn");
-  const oopInstrumentsButton = document.getElementsByClassName("loopedInstrumentBtn");
+  const liveInstrumentsButton =
+    document.getElementsByClassName("liveInstrumentsBtn");
+  const loopInstrumentsButton = document.getElementsByClassName(
+    "loopedInstrumentBtn"
+  );
   const soundEffect = document.getElementsByClassName("soundeffectBtn");
   const power = document.getElementsByClassName("powerBtn");
   const tempoIncrease = document.getElementsByClassName("plus");
   const tempoDecrease = document.getElementsByClassName("minus");
   const tempoLevelIndicator = document.getElementsByClassName("nobe");
 
-    const kick = new Audio("sound/instruments/kick.mp3");
-    const bassSnare = new Audio("sound/instruments/bass-snare.mp3");
-    const clap = new Audio("sound/instruments/clap.mp3");
-    const clapSnap = new Audio("sound/instruments/clap-snap.mp3");
-    const hardKick = new Audio("sound/instruments/hard-kick.mp3");
-    const hiHat = new Audio("sound/instruments/hi-hat.mp3");
-    const snare = new Audio("sound/instruments/snare.mp3");
-    const timHat = new Audio("sound/instruments/tim-hat.mp3");
-    const airhorn = new Audio("sound/soundEffects/airhorn.mp3");
-    const chioer = new Audio("sound/soundEffects/angelical-pad.mp3");
-    const strings = new Audio("sound/soundEffects/beautiful-stringt.mp3");
-    const djYeahScratch = new Audio("sound/soundEffects/dj-yeah-scratch.mp3");
-    const soundDrop = new Audio("sound/soundEffects/drop-sound.mp3");
-    const fastForward = new Audio("sound/soundEffects/fast-forward.mp3");
-    const laser = new Audio("sound/soundEffects/laser.mp3");
-    const rewind = new Audio("sound/soundEffects/rewind.mp3");
-    const cheer = new Audio("sound/soundEffects/cheers.mp3");
-    let level1 = [];
-    let level2 = [];
-    let level3 = [];
-    let level4 = [];
-    // paly loop function
+  const kick = new Audio("sound/instruments/kick.mp3");
+  const bassSnare = new Audio("sound/instruments/bass-snare.mp3");
+  const clap = new Audio("sound/instruments/clap.mp3");
+  const clapSnap = new Audio("sound/instruments/clap-snap.mp3");
+  const hardKick = new Audio("sound/instruments/hard-kick.mp3");
+  const hiHat = new Audio("sound/instruments/hi-hat.mp3");
+  const snare = new Audio("sound/instruments/snare.mp3");
+  const timHat = new Audio("sound/instruments/tim-hat.mp3");
+  const airhorn = new Audio("sound/soundEffects/airhorn.mp3");
+  const chioer = new Audio("sound/soundEffects/angelical-pad.mp3");
+  const strings = new Audio("sound/soundEffects/beautiful-stringt.mp3");
+  const djYeahScratch = new Audio("sound/soundEffects/dj-yeah-scratch.mp3");
+  const soundDrop = new Audio("sound/soundEffects/drop-sound.mp3");
+  const fastForward = new Audio("sound/soundEffects/fast-forward.mp3");
+  const laser = new Audio("sound/soundEffects/laser.mp3");
+  const rewind = new Audio("sound/soundEffects/rewind.mp3");
+  const cheer = new Audio("sound/soundEffects/cheers.mp3");
+  // tempo values
+  let tempo1 = 1000;
+  let tempo2 = 1000;
+  let tempo3 = 1000;
+  let tempo4 = 1000;
+  //level === tempo indicator rotation values
+  let level1 = 0;
+  let level2 = 0;
+  let level3 = 0;
+  let level4 = 0;
+  let selectedIndex = null;
+  let loop = null;
+  //
+  let tmp1 = [tempo1];
+
+  // function to loop audio sounds
   function playKick() {
-    kick.currentTime = 0; // Rewind to beginning
+    kick.currentTime = 0;
     kick.play();
   }
   function playSnare() {
-    snare.currentTime = 0; // Rewind to beginning
+    snare.currentTime = 0;
     snare.play();
   }
   function playClap() {
-    clap.currentTime = 0; // Rewind to beginning
+    clap.currentTime = 0;
     clap.play();
   }
   function playHiHat() {
-    snare.currentTime = 0; // Rewind to beginning
+    snare.currentTime = 0;
     snare.play();
   }
-  let selectedIndex = null;
-// +volum
-//   Array.from(tempoIncrease).forEach((plus, index) => {
-//     plus.onclick = powerClicked;
-//     function powerClicked() {
-//       selectedIndex = index;
-//       let loop = null;
-//       switch (selectedIndex) {
-//         case 0:
-//           level1.push(1);
-//           break;
-//         case 1:
-//           level2.push(1);
-         
-//           break;
-//         case 2:
-//           level3.push(1); 
-//           break;
-//         case 3:
-//          level4.push(1);
-         
-//           break;
-//         default:
-//           console.log("No valid color selected");
-//       }
-//     }
-//   });
--volum
-  Array.from(tempoIncrease).forEach((minus, index) => {
-    plus.onclick = powerClicked;
-    function powerClicked() {
+
+  function stopAudioLoop() {
+    if (loop !== null) {
+      clearInterval(loop);
+    }
+  }
+
+  // +volum
+  Array.from(tempoIncrease).forEach((plus, index) => {
+    plus.onclick = plusClicked;
+    function plusClicked() {
       selectedIndex = index;
-      let loop = null;
       switch (selectedIndex) {
         case 0:
-          level1.pop;
+          tmp1.pop();
+          tmp1.push(tempo1);
+          if (level1 < 330) {
+            level1 += 30;
+          }
+          if (tempo1 < 12000) {
+            tempo1 += 1000;
+
+            console.log("+tempo1:" + tempo1);
+          } else level1;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level1}deg`;
           break;
-          
         case 1:
-          level2.pop;
+          if (level2 < 330) {
+            level2 += 30;
+          }
+          if (tempo2 < 12000) {
+            tempo2 += 1000;
+            console.log("+tempo2:" + tempo2);
+          } else level3;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level2}deg`;
           break;
         case 2:
-          level3.pop;
+          if (level3 < 330) {
+            level3 += 30;
+          }
+          if (tempo3 < 12000) {
+            tempo3 += 1000;
+            console.log("+tempo3:" + tempo3);
+          } else level3;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level3}deg`;
           break;
         case 3:
-         level4.pop;
+          if (level4 < 330) {
+            level4 += 30;
+          }
+          if (tempo4 < 12000) {
+            tempo4 += 1000;
+            console.log("+tempo4:" + tempo4);
+          } else level4;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level4}deg`;
           break;
         default:
           console.log("No valid color selected");
       }
     }
   });
-// looped instruments channel
-  Array.from(LoopInstrumentsButton).forEach((loopedInstrumentBtn, index) => {
-    loopedInstrumentBtn.onclick = powerClicked;
-    function powerClicked() {
+  // -volum
+  Array.from(tempoDecrease).forEach((minus, index) => {
+    minus.onclick = minusClicked;
+    function minusClicked() {
       selectedIndex = index;
-      let loop = null;
       switch (selectedIndex) {
         case 0:
-          snare.play();
-          loop = setInterval(playSnare, level1.length*1000);
-          break;
+          if (level1 > 0) {
+            level1 = level1 - 30;
+          }
+          if (tempo1 < 12000) {
+            tempo1 = tempo1 - 1000;
+            console.log("-tempo1 " + tempo1);
+          } else level1;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level1}deg`;
+
         case 1:
-          playSnare(); 
-          loop = setInterval(playSnare, level1.length*1000);
+          if (level2 > 0) {
+            level2 = level2 - 30;
+          }
+          if (tempo2 < 12000) {
+            tempo2 = tempo2 - 1000;
+            console.log("-tempo2: " + tempo2);
+          } else level2;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level2}deg`;
           break;
         case 2:
-          playClap(); 
-          loop = setInterval(playClap, level2.length*1000);
+          if (level3 > 0) {
+            level3 = level3 - 30;
+          }
+          if (tempo3 < 12000) {
+            tempo3 = tempo3 - 1000;
+            console.log("-tempo3: " + tempo3);
+          } else level3;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level3}deg`;
           break;
         case 3:
-         playHiHat(); 
-          loop = setInterval(playSnare, level3.length*1000);
+          if (level4 > 0) {
+            level4 = level4 - 30;
+          }
+          if (tempo4 < 12000) {
+            tempo4 = tempo4 - 1000;
+            console.log("-tempo4: " + tempo4);
+          } else level1;
+          tempoLevelIndicator[selectedIndex].style.rotate = `${level4}deg`;
           break;
         default:
           console.log("No valid color selected");
       }
     }
   });
-looped instruments channel
+  // looped instruments channel
   Array.from(power).forEach((powerBtn, index) => {
     powerBtn.onclick = powerClicked;
     function powerClicked() {
       selectedIndex = index;
-      let loop = null;
       switch (selectedIndex) {
         case 0:
-          playKick(); // Play immediately
-          loop = setInterval(playKick, 1000);
+          playKick();
+          setInterval(playKick, tmp1[0]);
+
           break;
         case 1:
-          playSnare(); // Play immediately
-          loop = setInterval(playSnare, 1000);
+          playSnare();
+          setInterval(playSnare, tempo2);
           break;
         case 2:
-          playClap(); // Play immediately
-          loop = setInterval(playClap, 1000);
+          playClap();
+          setInterval(playClap, tempo3);
           break;
         case 3:
-          playHiHat(); // Play immediately
-          loop = setInterval(playHiHat, 1000);
+          playHiHat();
+          setInterval(playHiHat, tempo4);
           break;
         default:
           console.log("No valid color selected");
       }
     }
   });
-
-// effect channel
+  // effect channel
   Array.from(soundEffect).forEach((soundeffectBtn, index) => {
-    soundeffectBtn.onclick = powerClicked;
-    function powerClicked() {
-      selectedIndex = index
+    soundeffectBtn.onclick = soundEffectClicked;
+    function soundEffectClicked() {
+      selectedIndex = index;
       switch (selectedIndex) {
         case 0:
           chioer.play();
@@ -188,17 +233,17 @@ looped instruments channel
         case 8:
           soundDrop.play();
           break;
-        
+
         default:
           console.log("No valid color selected");
       }
     }
   });
-// live instruments
-  Array.from(liveInstrumentsButton).forEach((liveInstrumentBtn, index) => {
-    liveInstrumentBtn.onclick = liveInstrumentClicked;
+  // live instruments
+  Array.from(liveInstrumentsButton).forEach((liveInstrumentsBtn, index) => {
+    liveInstrumentsBtn.onclick = liveInstrumentClicked;
     function liveInstrumentClicked() {
-      selectedIndex = index
+      selectedIndex = index;
       switch (selectedIndex) {
         case 0:
           kick.play();
@@ -233,5 +278,5 @@ looped instruments channel
       }
     }
   });
-//  🍇  
+  //  🍇
 }
