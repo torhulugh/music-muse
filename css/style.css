@@ -82,6 +82,10 @@ main {
   display: flex;
   margin-bottom: 10px;
 }
+.powerBtnOn {
+  display: none;
+  margin-bottom: 10px;
+}
 .tempoController--nd--title--container {
   display: flex;
   flex-direction: column;
@@ -120,6 +124,7 @@ main {
   position: relative;
   align-items: center;
   justify-content: center;
+  top: 0px;
 }
 .numbers--nd--nobe--container {
   display: flex;
@@ -132,11 +137,16 @@ main {
 .numbers {
   display: flex;
   position: absolute;
+  transform-origin: center;
+  top: 5px;
 }
 .nobe {
   display: flex;
   position: absolute;
   transform: translate(-3px, 15px);
+  transform: rotate(0deg);
+  transform-origin: center;
+  top: 20px;
 }
 .tempo--increase--decrease--container {
   width: fit-content;
